@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Settings · TradeDesk</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><h1>TradeDesk</h1><span class="muted small">Settings</span><span class="muted small" id="who"></span></div>
+        <nav class="nav" id="nav"></nav>
+  </header>
+
+  <main class="page">
+    <form class="panel form" id="newsForm">
+      <h2>My news categories</h2>
+      <p class="hint">Tick the kinds of news you want, for example only <b>Banking &amp; Finance</b>. Nothing ticked shows everything. Stories that match your watchlist always show.</p>
+      <div id="cats"></div>
+
+      <div class="grid2">
+        <div>
+          <h2>Regions</h2>
+          <div class="check-grid" id="regions"></div>
+        </div>
+        <div>
+          <h2>Minimum impact</h2>
+          <select id="minImpact" class="inp">
+            <option value="Low">Show all (Low and up)</option>
+            <option value="Medium">Medium and High only</option>
+            <option value="High">High only</option>
+          </select>
+          <label class="check" style="margin-top:10px"><input type="checkbox" id="watchOnly" /> Only stories that match my watchlist</label>
+        </div>
+      </div>
+
+      <div>
+        <h2>Calendar currencies</h2>
+        <div class="check-grid" id="ccys"></div>
+      </div>
+
+      <div class="row"><button type="submit">Save news settings</button><span class="msg" id="newsMsg"></span></div>
+    </form>
+
+    <form class="panel form" id="tgForm">
+      <h2>Telegram alerts</h2>
+      <p class="hint" id="tgHint"></p>
+      <div class="grid2">
+        <label>My Telegram chat ID<input type="text" id="chatId" placeholder="e.g. 123456789" inputmode="numeric" /></label>
+        <label>Alert me for
+          <select id="alertMin">
+            <option value="High">High-impact news</option>
+            <option value="Medium">Medium and High</option>
+            <option value="Low">Everything in my categories</option>
+            <option value="Off">No news alerts</option>
+          </select>
+        </label>
+      </div>
+      <label class="check"><input type="checkbox" id="alertWatch" /> Also alert Medium news that hits my watchlist</label>
+      <label class="check"><input type="checkbox" id="calAlerts" /> Remind me before High-impact calendar events</label>
+      <div class="row"><button type="submit">Save alerts</button><button type="button" class="ghost" id="tgTest">Send test message</button><span class="msg" id="tgMsg"></span></div>
+    </form>
+
+    <form class="panel form" id="pwForm">
+      <h2>Change password</h2>
+      <div class="grid2">
+        <label>Current password<input type="password" id="pwCur" autocomplete="current-password" required /></label>
+        <span></span>
+        <label>New password<input type="password" id="pwNew" autocomplete="new-password" minlength="10" required /></label>
+        <label>Confirm new password<input type="password" id="pwNew2" autocomplete="new-password" minlength="10" required /></label>
+      </div>
+      <div class="row"><button type="submit">Change password</button><span class="msg" id="pwMsg"></span></div>
+    </form>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

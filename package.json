@@ -1,0 +1,19 @@
+{
+  "name": "tradedesk",
+  "version": "2.0.0",
+  "description": "TradeDesk: market-moving news (India, US, global, FX) with impact scoring and Telegram alerts, plus a multi-user trade journal with analytics",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test:rules": "node scripts/test-classifier.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "rss-parser": "^3.13.0"
+  }
+}

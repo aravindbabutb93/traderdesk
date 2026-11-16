@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin · TradeDesk</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><h1>TradeDesk</h1><span class="muted small">Admin · <span id="who"></span> · <span id="summary"></span></span></div>
+        <nav class="nav" id="nav"></nav>
+  </header>
+
+  <main class="page">
+    <section class="panel">
+      <h2>Users</h2>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Name</th><th>Username</th><th>Role</th><th>Categories</th><th>Telegram</th><th>Last sign-in</th><th></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <form class="panel form" id="addForm">
+      <h2>Add a user</h2>
+      <div class="grid2">
+        <label>Name<input type="text" id="aName" required /></label>
+        <label>Username<input type="text" id="aUser" required autocapitalize="none" placeholder="3-32 letters, numbers, . - _" /></label>
+        <label>Temporary password<input type="text" id="aPass" required minlength="10" autocomplete="off" /></label>
+        <label>Role
+          <select id="aRole"><option value="user">User</option><option value="admin">Admin (can manage users)</option></select>
+        </label>
+      </div>
+      <div>
+        <h2>Starting categories</h2>
+        <p class="hint">Optional. The user can change these later in their Settings. Nothing ticked = all news.</p>
+        <div id="aCats"></div>
+      </div>
+      <div class="row"><button type="submit">Add user</button><button type="button" class="ghost" id="genPw">Generate password</button><span class="msg" id="addMsg"></span></div>
+    </form>
+  </main>
+
+  <dialog id="editDlg">
+    <form class="form" id="editForm" method="dialog">
+      <h2 id="eTitle">Edit user</h2>
+      <div class="grid2">
+        <label>Name<input type="text" id="eName" required /></label>
+        <label>Role
+          <select id="eRole"><option value="user">User</option><option value="admin">Admin</option></select>
+        </label>
+        <label>Reset password<input type="text" id="ePass" minlength="10" autocomplete="off" placeholder="Leave blank to keep (min 10 chars)" /></label>
+        <label class="check" style="align-self:end"><input type="checkbox" id="eActive" /> Account active</label>
+      </div>
+      <div>
+        <h2>News categories</h2>
+        <div id="eCats"></div>
+      </div>
+      <div class="row">
+        <button type="submit" id="eSave">Save</button>
+        <button type="button" class="ghost" id="eCancel">Cancel</button>
+        <span class="msg" id="eMsg"></span>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="common.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

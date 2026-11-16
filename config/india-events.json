@@ -1,0 +1,8 @@
+{
+  "_note": "India events the global calendar does not cover. Times are IST (+05:30). Add CPI, GDP, F&O expiry changes etc. as you need. RBI dates are from the RBI's FY2026-27 MPC schedule (announced 23 Mar 2026); the 10:00 IST announcement time is the usual practice, confirm on the day.",
+  "events": [
+    { "title": "RBI MPC policy decision", "date": "2026-12-04T10:00:00+05:30", "impact": "High" },
+    { "title": "RBI MPC policy decision", "date": "2027-02-05T10:00:00+05:30", "impact": "High" },
+    { "title": "Union Budget FY2027-28 (customary 1 Feb date, confirm)", "date": "2027-02-01T11:00:00+05:30", "impact": "High" }
+  ]
+}

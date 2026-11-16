@@ -1,0 +1,69 @@
+{
+  "symbols": [
+    {
+      "symbol": "NIFTY",
+      "aliases": [
+        "Nifty 50",
+        "Nifty"
+      ]
+    },
+    {
+      "symbol": "BANKNIFTY",
+      "aliases": [
+        "Bank Nifty",
+        "Nifty Bank"
+      ]
+    },
+    {
+      "symbol": "RELIANCE",
+      "aliases": [
+        "Reliance Industries",
+        "RIL"
+      ]
+    },
+    {
+      "symbol": "HDFCBANK",
+      "aliases": [
+        "HDFC Bank"
+      ]
+    },
+    {
+      "symbol": "ICICIBANK",
+      "aliases": [
+        "ICICI Bank"
+      ]
+    },
+    {
+      "symbol": "SBIN",
+      "aliases": [
+        "SBI",
+        "State Bank of India"
+      ]
+    },
+    {
+      "symbol": "INFY",
+      "aliases": [
+        "Infosys"
+      ]
+    },
+    {
+      "symbol": "TCS",
+      "aliases": [
+        "Tata Consultancy Services"
+      ]
+    },
+    {
+      "symbol": "EURUSD",
+      "aliases": [
+        "EUR/USD"
+      ]
+    },
+    {
+      "symbol": "USDINR",
+      "aliases": [
+        "USD/INR",
+        "rupee"
+      ]
+    }
+  ]
+}

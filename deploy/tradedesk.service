@@ -1,0 +1,35 @@
+# /etc/systemd/system/tradedesk.service
+[Unit]
+Description=TradeDesk (market news + trade journal)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=tradedesk
+Group=tradedesk
+WorkingDirectory=/opt/tradedesk
+EnvironmentFile=/opt/tradedesk/.env
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+ExecStart=/usr/bin/node src/index.js
+Restart=always
+RestartSec=5
+
+# Sandboxing: the app can only write to its data folder and config/watchlist.json
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/tradedesk/data /opt/tradedesk/config
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+CapabilityBoundingSet=
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

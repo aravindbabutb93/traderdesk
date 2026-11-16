@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>News · TradeDesk</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="dot" id="liveDot"></span>
+      <h1>TradeDesk</h1>
+      <span class="muted" id="clock"></span>
+    </div>
+    <div class="status muted" id="status">Connecting…</div>
+    <div class="actions">
+      <button id="digestBtn" title="Summarize market-moving news from yesterday till now">📋 Summarize</button>
+      <button id="soundBtn" class="ghost" title="Beep on new High-impact news">🔔 Sound off</button>
+      <button id="refreshBtn" class="ghost" hidden>↻ Refresh</button>
+    </div>
+    <nav class="nav" id="nav"></nav>
+  </header>
+
+  <section class="filters">
+    <input id="search" type="search" placeholder="Search headlines…" />
+    <div class="chips" id="regionChips"></div>
+    <div class="chips" id="impactChips"></div>
+    <select id="categorySel"><option value="all">All categories</option></select>
+    <label class="toggle"><input type="checkbox" id="watchOnly" /> Watchlist only</label>
+    <span class="muted" id="count"></span>
+    <a class="muted small" id="myCats" href="/settings.html"></a>
+  </section>
+
+  <main class="layout">
+    <section class="feed" id="feed"></section>
+
+    <aside class="side">
+      <div class="panel">
+        <h2>Economic calendar <span class="muted small">IST</span></h2>
+        <div class="chips small-chips" id="calChips"></div>
+        <div id="calendar"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Watchlist</h2>
+        <div id="watchlist" class="watchlist"></div>
+        <form id="watchForm" class="watch-form">
+          <input id="watchSymbol" placeholder="Symbol e.g. TATAMOTORS" required />
+          <input id="watchAliases" placeholder="Aliases, comma separated" />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>Telegram</h2>
+        <p class="muted small" id="tgStatus"></p>
+        <button id="tgTest" class="ghost">Send test message</button>
+      </div>
+
+      <details class="panel" id="sourcesPanel" hidden>
+        <summary><h2>Sources</h2></summary>
+        <ul id="sources" class="sources"></ul>
+      </details>
+    </aside>
+  </main>
+
+  <div class="modal" id="digestModal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="digestTitle">
+      <div class="modal-head">
+        <h2 id="digestTitle">Market summary</h2>
+        <select id="digestWindow" title="Time window (IST)">
+          <option value="yesterday" selected>Yesterday 00:00 → now (default)</option>
+          <optgroup label="Custom · Session">
+            <option value="auto">Since last session (Mon = from Fri)</option>
+            <option value="close">Since last close (15:30)</option>
+            <option value="weekend">Weekend: Fri close → Mon 09:15</option>
+          </optgroup>
+          <optgroup label="Custom · Days">
+            <option value="1d">Last 1 day</option>
+            <option value="2d">Last 2 days</option>
+            <option value="3d">Last 3 days</option>
+          </optgroup>
+          <optgroup label="Custom · Week">
+            <option value="thisweek">This week (Mon → now)</option>
+            <option value="7d">Last 7 days</option>
+            <option value="lastweek">Last week (Mon–Sun)</option>
+          </optgroup>
+        </select>
+        <label class="toggle small"><input type="checkbox" id="digestUseRegions" checked /> Use my region filter</label>
+        <button id="digestCopy" class="ghost" title="Copy as text">⧉ Copy</button>
+        <button id="digestClose" class="ghost" title="Close (Esc)">✕</button>
+      </div>
+      <div class="modal-body" id="digestBody"></div>
+    </div>
+  </div>
+
+  <script src="common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

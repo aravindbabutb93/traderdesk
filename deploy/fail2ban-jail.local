@@ -1,0 +1,15 @@
+# /etc/fail2ban/jail.d/tradedesk.local
+[tradedesk]
+enabled  = true
+backend  = systemd
+journalmatch = _SYSTEMD_UNIT=tradedesk.service
+filter   = tradedesk
+maxretry = 8
+findtime = 15m
+bantime  = 24h
+port     = http,https
+
+[sshd]
+enabled  = true
+maxretry = 5
+bantime  = 24h

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign in · TradeDesk</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="panel auth">
+      <h1 id="title">TradeDesk</h1>
+      <p class="muted small" id="sub">Market news and your trade journal. Sign in to continue.</p>
+      <form class="form" id="form">
+        <label id="codeRow" hidden>Setup code<input type="text" id="setupCode" autocomplete="off" placeholder="Printed in the server log at startup" /></label>
+        <label id="nameRow" hidden>Your name<input type="text" id="name" autocomplete="name" /></label>
+        <label>Username<input type="text" id="username" autocomplete="username" required autocapitalize="none" /></label>
+        <label>Password<input type="password" id="password" autocomplete="current-password" required /></label>
+        <label id="confirmRow" hidden>Confirm password<input type="password" id="confirm" autocomplete="new-password" /></label>
+        <div class="msg err" id="msg"></div>
+        <button type="submit" id="submit">Sign in</button>
+      </form>
+    </div>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>
